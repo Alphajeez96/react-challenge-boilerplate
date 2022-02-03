@@ -1,13 +1,56 @@
-body {
+*,
+:after,
+:before {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Hero New ";
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* FONTS HERE */
+@font-face {
+  font-family: "Hero New ";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/Hero New Regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hero New ";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/Hero New Medium.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hero New ";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/Hero New SemiBold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hero New ";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/Hero New Bold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hero New ";
+  font-style: normal;
+  font-weight: 800;
+  src: url("./assets/fonts/Hero New ExtraBold.woff") format("woff");
+  font-display: swap;
 }
