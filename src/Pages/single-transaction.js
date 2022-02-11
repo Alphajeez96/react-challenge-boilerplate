@@ -42,6 +42,11 @@ export const SingleTransaction = () => {
     }
   };
 
+  const shortenAccount = (value) => {
+    if (!value) return "";
+    return `**** **** **** ${value}`;
+  };
+
   return (
     <DashboardLayout>
       {loading ? (
@@ -278,8 +283,10 @@ export const SingleTransaction = () => {
                             <p>Card Number</p>
                             <p>
                               {" "}
-                              {data.paymentInstrument?.paymentInstrumentData
-                                ?.last4Digits ?? "nil"}
+                              {shortenAccount(
+                                data.paymentInstrument?.paymentInstrumentData
+                                  ?.last4Digits
+                              )}
                             </p>
                           </div>
 

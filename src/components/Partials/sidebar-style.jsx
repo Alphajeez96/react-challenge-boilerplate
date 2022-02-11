@@ -93,10 +93,16 @@ export const SideBarWrapper = styled.div`
       }
 
       .log-out {
-        color: #e42c66;
-        font-size: 16px;
-        font-weight: 600;
+        display: flex;
+        align-items: center;
+        color: #e8e8e8;
+        font-size: 0.875rem;
+        font-weight: 400;
         cursor: pointer;
+
+        img {
+          margin-right: 0.625rem;
+        }
       }
     }
   }

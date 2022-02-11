@@ -10,7 +10,10 @@ import { useState } from "react";
 
 let ButtonProps = {
   title: "Login To Dashboard",
-  style: {},
+  style: {
+    background: "#0b0b0b",
+    color: "#fff",
+  },
 };
 
 export const LoginForm = () => {

@@ -78,6 +78,7 @@ export const CardWrapper = styled.div`
             letter-spacing: 0.07em;
             font-weight: 300;
             padding-top: 0.25rem;
+            color: #0b0b0b;
           }
         }
       }

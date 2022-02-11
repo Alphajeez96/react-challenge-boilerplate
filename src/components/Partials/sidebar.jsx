@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import routes from "../../utils/nav-routes";
 import { getUser } from "../../services/api";
 import { useEffect, useState } from "react";
+import logout from "../../assets/logout.svg";
 
 export const SideBar = () => {
   const [user, setUser] = useState([]);
@@ -135,7 +136,8 @@ export const SideBar = () => {
                   navigate("/");
                 }}
               >
-                LOGOUT
+                <img src={logout} alt="logout" />
+                Logout
               </p>
             </ul>
           </div>
