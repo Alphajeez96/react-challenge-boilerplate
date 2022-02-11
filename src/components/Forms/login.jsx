@@ -1,29 +1,44 @@
-import { createGlobalStyle } from "styled-components";
 import { FormWrapper, LogoWrapper, FooterWrapper } from "./login-style";
+import { useFormik } from "formik";
+import { loginUser } from "../../services/api";
 import { Button } from "../Button/button";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/primer-logo.svg";
 import emailIcon from "../../assets/email.svg";
 import passwordIcon from "../../assets/password.svg";
+import { useState } from "react";
 
-// SHould be moved to the route page handling the login
-const LoginGlobalStyle = createGlobalStyle`
-  body {
-    /* background: #F0F8FF; */
-    background: rgb(244, 244, 244);
-    /* background: red; */
-  }
-`;
-
-const ButtonProps = {
+let ButtonProps = {
   title: "Login To Dashboard",
   style: {},
 };
 
-const LoginForm = () => {
+export const LoginForm = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  // form Handler Here
+  const formik = useFormik({
+    initialValues: {
+      username: "primer.candidate@primer.test",
+      password: "Candidate1234",
+      grant_type: "password",
+    },
+
+    onSubmit: async (payload) => {
+      setLoading(true);
+      const response = await loginUser(payload);
+
+      if (response.isSuccess) {
+        localStorage.setItem("accessToken", response.data?.accessToken);
+        navigate("/transactions");
+      }
+      setLoading(false);
+    },
+  });
+
   return (
     <>
-      <LoginGlobalStyle />
-
       <LogoWrapper>
         <img src={logo} alt="logo" />
       </LogoWrapper>
@@ -33,14 +48,16 @@ const LoginForm = () => {
         <div>
           <p>LOGIN HERE</p>
 
-          <form>
+          <form onSubmit={formik.handleSubmit}>
             {/* Email Input here */}
             <div className="form-group">
               <img src={emailIcon} alt="email-icon" />
               <input
+                id="username"
                 type="email"
-                value="primer.candidate@primer.test"
+                inputMode="email"
                 placeholder="Username"
+                value={formik.values.username}
                 readOnly
               />
             </div>
@@ -49,16 +66,17 @@ const LoginForm = () => {
             <div className="form-group">
               <img src={passwordIcon} alt="email-icon" />
               <input
+                id="password"
                 type="password"
-                value="Candidate1234"
                 placeholder="Password"
+                value={formik.values.password}
                 readOnly
               />
             </div>
 
             {/* Submit Button here */}
             <div className="submit-button">
-              <Button {...ButtonProps} />
+              <Button {...ButtonProps} loading={loading} />
             </div>
           </form>
         </div>
@@ -106,5 +124,3 @@ const LoginForm = () => {
     </>
   );
 };
-
-export default LoginForm;

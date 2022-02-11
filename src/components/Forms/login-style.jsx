@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// Logo styles Here
 export const LogoWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -11,6 +12,7 @@ export const LogoWrapper = styled.div`
   }
 `;
 
+// Form Styles Here
 export const FormWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -64,6 +66,7 @@ export const FormWrapper = styled.div`
   }
 `;
 
+// Footer Styles Here
 export const FooterWrapper = styled.div`
   text-align: center;
   margin-top: 1.5rem;
@@ -71,7 +74,7 @@ export const FooterWrapper = styled.div`
   a.forgot-password {
     font-size: 0.875rem;
     letter-spacing: 0.05em;
-    color: ${({ theme }) => theme.colors.blue};
+    color: ${({ theme }) => theme?.colors?.blue};
     line-height: 1.25rem;
     font-weight: 500;
     text-decoration: none;
@@ -83,7 +86,7 @@ export const FooterWrapper = styled.div`
     padding-top: 0.75rem;
 
     span > a {
-      color: ${({ theme }) => theme.colors.blue};
+      color: ${({ theme }) => theme?.colors?.blue};
       text-decoration: none;
     }
   }

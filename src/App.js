@@ -1,32 +1,17 @@
-import styled from "styled-components";
-import logo from "./assets/logo.png";
-import Button from "./components/test";
-import LoginForm from "./components/Forms/login.jsx";
-
-const AppWrapper = styled.div`
-  margin: 2rem auto;
-  padding: 2rem;
-  max-width: 300px;
-  border: 1px #000 solid;
-  border-radius: 6px;
-  text-align: center;
-
-  & > p {
-    margin: 1rem 0 0 0;
-  }
-`;
+import { LoginForm } from "./components/Forms/login.jsx";
+import { Transactions } from "./Pages/transaction.js";
+import { SingleTransaction } from "./Pages/single-transaction.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      {/* <AppWrapper>
-        <img src={logo} alt="Primer logo" width="128" height="128" />
-        <p>Primer React Challenge Boilerplate</p>
-        <Button />
-      </AppWrapper> */}
-
-      <LoginForm />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" exact element={<LoginForm />} />
+        <Route path="/transactions" exact element={<Transactions />} />
+        <Route path="/transactions/:id" exact element={<SingleTransaction />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
